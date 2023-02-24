@@ -1,3 +1,4 @@
+
 #Harjutus 5. ja 19.
 #5-Упорядочить зарплаты в порядке возрастания и убывания вместе с именами,
 print("Harjutus 5.")
@@ -29,29 +30,11 @@ print("Kahanevad inimesed: " + ", ".join(kahanemine_inimesed))
 print("Harjutus 1.")
 palgad = [1200, 2500, 750, 395, 1200]
 inimesed = ["A", "B", "C", "D", "E"]
-while True:
-    print("- 1")
-    print("- 2")
-    print("- 3")
-    print("- 4")
-    print("- 5")
-    print("- 6")7
-    выбор = int(input("Teie valik? "))
-    while True:
-        if выбор==1:
-            try:
-                добавить_palgad=int(input("Введите зарплату которую хотите добавить: "))
-                добавить_inimesed=str(input("Введите имя человека чья это зарплата: "))
-                break
-            except:
-                print("Неправильная сумма.")
-    while True:
-        try:
-            добавить_inimesed=str(input("Введите имя человека чья это зарплата: "))
-            break
-        except:
-            print("Неправильное имя.")
-palgad.append(добавить_palgad)
-inimesed.append(добавить_inimesed)
+n = int(input("Сколько людей вы хотите добавить? "))
+for i in range(n):
+    inimene = input(f"Введите имя {i+1} человека: ")
+    palk = float(input(f"Введите зарплату для {inimene}: "))
+    inimesed.append(inimene)
+    palgad.append(palk)
 print(palgad)
 print(inimesed)
