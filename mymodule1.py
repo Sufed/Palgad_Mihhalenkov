@@ -3,6 +3,14 @@ def Harjutus_5(): #Упорядочить зарплаты в порядке в�
     palgad = [1200, 2500, 750, 395, 1200]
     inimesed = ["A", "B", "C", "D", "E"]
 
+    nimi = input("Sisesta nimi: ")
+    if nimi in inimesed:
+        a = inimesed.count(nimi)
+        for j in range(a):
+            ind = inimesed.index(nimi)
+            inimesed.pop(ind)
+            palgad.pop(ind)
+
     kasvavad_palgad = sorted(palgad) #Происходит сортировка списка зарплат и сохраняется в переменной.
     kasvavad_inimesed = [inimesed[palgad.index(p)] for p in kasvavad_palgad] #Происходит сортировка людей по зарплате. Он смотрит список зарплат,
         #и каждый индекс зарплаты он сохраняет. и применяет к именам.
@@ -28,3 +36,36 @@ def Harjutus_1():
         palgad.append(palk)
     print(palgad)
     print(inimesed)
+
+
+def Sorteerimine(inimesed, palgad):
+    palgad = [1200, 2500, 750, 395, 1200]
+    inimesed = ["A", "B", "C", "D", "E"]
+    v = int(input("Palk 1-kaheneb, 2-kasvab? "))
+    if v == 1:
+        n = len(palgad)
+        for j in range(0, n-1):
+            for k in range(j+1, n):
+                if palgad[j] < palgad[k]:
+                    abi = palgad[j]
+                    palgad[j] = palgad[k]
+                    palgad[k] = abi
+                    abi = inimesed[j]
+                    inimesed[j] = inimesed[k]
+                    inimesed[k] = abi
+    elif v == 2:
+        n = len(palgad)
+        for j in range(0, n-1):
+            for k in range(j+1, n):
+                if palgad[j] > palgad[k]:
+                    abi = palgad[j]
+                    palgad[j] = palgad[k]
+                    palgad[k] = abi
+                    abi = inimesed[j]
+                    inimesed[j] = inimesed[k]
+                    inimesed[k] = abi
+    else:
+        print("Viga: Valik peab olema kas 1 või 2.")
+    print(palgad)
+    print(inimesed)
+    return inimesed, palgad
